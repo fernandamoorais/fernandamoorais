@@ -11,7 +11,7 @@ public class FeedReader {
 	
 	public static void main(String[] args) throws IOException {
 	 
-		FeedFactoryInterface factory = (FeedFactoryInterface) new FeedFactory();
+		FeedFactoryInterface factory =  new FeedFactory();
     
 		
 		String file = "test.rss";

@@ -3,7 +3,7 @@ package algorithmsandconstructs;
 import algorithmsandconstructs.FeedInterface;
 
 // BLUEPRINT
-public final class FeedItem implements FeedInterface{
+public final class FeedItem {
 
 	
 	public final String title;

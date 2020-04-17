@@ -7,7 +7,7 @@ import algorithmsandconstructs.FeedFactoryInterface;
 import algorithmsandconstructs.FeedInterface;
 import algorithmsandconstructs.FeedItem;
 
-public abstract class FeedFactory implements FeedFactoryInterface {
+public class FeedFactory implements FeedFactoryInterface {
 
 	@Override
 	public FeedInterface createFeed(BufferedReader in) throws IOException {
@@ -28,3 +28,9 @@ public abstract class FeedFactory implements FeedFactoryInterface {
 		return myFeed;
 	}
 }
+
+/**
+ * 
+ * while ( (line1=in.readLine()) != null){ line2= in.readLine();
+ * myFeed.addItem(new FeedItem(line1,line2)); }
+ */

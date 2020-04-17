@@ -3,9 +3,7 @@ package algorithmsandconstructs.s2019148;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
-
 import algorithmsandconstructs.FeedInterface;
 import algorithmsandconstructs.FeedItem;
 
@@ -25,7 +23,11 @@ public class Feed implements FeedInterface {
 		return itens.stream().map(FeedItem::getTitle).collect(Collectors.toList());
 	}
 
-	
+	/**
+	 * Reference Accumulate names into a List List<String> list =
+	 * people.stream().map(Person::getName).collect(Collectors.toList());
+	 ** https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html
+	 */
 
 	@Override
 	public FeedItem getItem(String title) {
@@ -41,7 +43,12 @@ public class Feed implements FeedInterface {
 		return feedFound;
 	}
 
-	
+	/**return itens.stream().filter(i -> title.equalsIgnoreCase(i.getTitle())).findAny().get();
+	 * https://www.geeksforgeeks.org/java-stream-findany-with-examples/
+	 * https://java2blog.com/java-8-stream-filter-examples/ // Filer based on name
+	 * Student student=studentList.stream() .filter(s->
+	 * s.getName().equalsIgnoreCase("John")) .findAny() .orElse(null);
+	 */
 
 	@Override
 	public int numItems() {
@@ -62,6 +69,12 @@ public class Feed implements FeedInterface {
 		return listFound;
 
 	}
-		
+		/**
+		 * https://www.geeksforgeeks.org/stream-in-java/
+		 * https://www.programcreek.com/java-api-examples/?class=java.util.Optional&method=isPresent
+		 * https://www.baeldung.com/java-optional .isPresent()
+		 * 
+		 */
+	
 
 }
