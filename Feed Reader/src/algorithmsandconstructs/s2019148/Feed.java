@@ -25,28 +25,24 @@ public class Feed implements FeedInterface {
 		return itens.stream().map(FeedItem::getTitle).collect(Collectors.toList());
 	}
 
-	/**
-	 * Reference Accumulate names into a List List<String> list =
-	 * people.stream().map(Person::getName).collect(Collectors.toList());
-	 ** https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html
-	 */
+	
+
 	@Override
 	public FeedItem getItem(String title) {
 
-		FeedItem FeedItem = itens.stream().filter(i -> title.equalsIgnoreCase(i.getTitle())).findAny().get();
-		if (FeedItem != null) {
-			return FeedItem;
-		} else {
-			return null;
+		FeedItem feedFound = null;
+		int x = 0;
+		for (x = 0; x < itens.size(); x++) {
+			FeedItem fi = itens.get(x);
+			if (title.equalsIgnoreCase(fi.getTitle())) {
+				feedFound = fi;
+			}
 		}
+		return feedFound;
 	}
 
-	/**
-	 * https://www.geeksforgeeks.org/java-stream-findany-with-examples/
-	 * https://java2blog.com/java-8-stream-filter-examples/ // Filer based on name
-	 * Student student=studentList.stream() .filter(s->
-	 * s.getName().equalsIgnoreCase("John")) .findAny() .orElse(null);
-	 */
+	
+
 	@Override
 	public int numItems() {
 		// TODO Auto-generated method stub
@@ -55,28 +51,17 @@ public class Feed implements FeedInterface {
 
 	@Override
 	public Collection<FeedItem> findItems(String keyword) {
-				
-		if (itens.stream().filter(i -> i.getTitle().contains(keyword) || i.getContent().contains(keyword) {
-			return itens.stream().filter(i -> i.getTitle().contains(keyword) || i.getContent().contains(keyword))
-					.collect(Collectors.toList());
-		} 
-		else {
-			return null;
+		Collection<FeedItem>listFound = new ArrayList<FeedItem>();
+		int x = 0;
+		for (x = 0; x < itens.size(); x++) {
+			FeedItem i = itens.get(x);
+			if(i.getTitle().contains(keyword)|| i.getContent().contains(keyword)) {
+				listFound.add(i);
+			}
 		}
-		/**
-		 * https://www.geeksforgeeks.org/stream-in-java/
-		 * 
-		 * demonstration of filter method List<String> result =
-		 * names.stream().filter(s->s.startsWith("S")). *collect(Collectors.toList());
-		 * 
-		 * https://stackoverflow.com/questions/49524961/how-to-use-java8-stream-filter-method-under-condition
-		 * return list.parallelStream() .filter(dto -> keyword == null ||
-		 * dto.getString().contains(keyword)).map(...).collect(Collectors.toList());
-		 * 
-		 * https://www.programcreek.com/java-api-examples/?class=java.util.Optional&method=isPresent
-		 * https://www.baeldung.com/java-optional .isPresent()
-		 * 
-		 */
+		return listFound;
+
 	}
+		
 
 }
